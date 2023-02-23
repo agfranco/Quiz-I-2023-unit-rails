@@ -2,9 +2,9 @@ module Appointments
   class SendAppointmentAlerts
 
     STATUSES = [
-      { hours: 1.hours, field: is_1_hour, alert_setting: 1 },
-      { hours: 12.hours, field: is_12_hour, alert_setting: 12 },
-      { hours: 24.hours, field: is_14_hour, alert_setting: 24 }
+      { hours: 1.hours, field: 'is_1_hour', alert_setting: 1 },
+      { hours: 12.hours, field: 'is_12_hour', alert_setting: 12 },
+      { hours: 24.hours, field: 'is_14_hour', alert_setting: 24 }
     ]
 
     def self.run
@@ -13,6 +13,7 @@ module Appointments
 
     def run
       Rails.logger.info 'Send Appointment Alerts - Starting up...'
+
       current_time = Time.now.in_time_zone('Asia/Karachi')
 
       STATUSES.each do |status|

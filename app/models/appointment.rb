@@ -1,4 +1,6 @@
 class Appointment < ApplicationRecord
+  include Barcodable
+
   enum status: %i[pending confirmed canceled rescheduled]
   enum call_status: %i[not_called no_answer called]
 
@@ -37,5 +39,9 @@ class Appointment < ApplicationRecord
 
   def self.appointment_alerts
     Appointments::SendAppointmentAlerts.run # This could run as a scheduled task
+  end
+
+  def send_appointment
+    Appointments::NotifyAlertsJob.perform_later([self])
   end
 end
