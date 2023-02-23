@@ -1,0 +1,5 @@
+- Passámos os status e call status para enums de forma a ter acesso a métodos auxiliares. Como verificar o status de um appointment, fazer queries por status e dar update para um status.
+- Usar os enums para simplificar os callbacks mais pequenos e usar algumas dessas condições para saber se o callback deveria correr.
+- Colocar a lógica dos barcodes num concern de forma a poder ser reutilizada noutros models de forma genérica
+- Fazer um Service object para enviar notificações de appoinment status change, seja quando o Appointment é criado ou se altera o seu estado. A parte do código mais pesada foi colocada dentro de um background job visto estarmos a iterar pelos user devices.
+- Fazer novamente um Service Object para tratar da lógica de notificar appointment alerts com algum refactor do código para evitar tantas queries em separado. Novamente existe um background job para tratar do envio das notificações em si
