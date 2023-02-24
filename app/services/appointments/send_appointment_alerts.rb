@@ -17,8 +17,8 @@ module Appointments
       current_time = Time.now.in_time_zone('Asia/Karachi')
 
       STATUSES.each do |status|
-        appointments = fetch_appointments(current_time + STATUSES[:hours], STATUSES[:alert_setting])
-        appointments.update_all("#{STATUSES[:field]} = true")
+        appointments = fetch_appointments(current_time + status[:hours], status[:alert_setting])
+        appointments.update_all("#{status[:field]} = true")
 
         Appointments::NotifyAlertsJob.perform_later(appointments)
       end

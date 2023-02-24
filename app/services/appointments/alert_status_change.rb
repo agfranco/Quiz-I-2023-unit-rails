@@ -24,7 +24,7 @@ module Appointments
     end
 
     def notification_message
-      message = I18n.t(translation_key, locale: 'ur')
+      message = I18n.t("#{translation_key}_status_alert", locale: 'ur')
                     .gsub('stylist', "#{translation.title.present? ? translation.title + ' ' : nil}
                                        #{translation.name}")
 

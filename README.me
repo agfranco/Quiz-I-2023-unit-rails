@@ -3,3 +3,4 @@
 - Colocar a lógica dos barcodes num concern de forma a poder ser reutilizada noutros models de forma genérica
 - Fazer um Service object para enviar notificações de appoinment status change, seja quando o Appointment é criado ou se altera o seu estado. A parte do código mais pesada foi colocada dentro de um background job visto estarmos a iterar pelos user devices.
 - Fazer novamente um Service Object para tratar da lógica de notificar appointment alerts com algum refactor do código para evitar tantas queries em separado. Novamente existe um background job para tratar do envio das notificações em si
+- Assumimos que existe um campo status na tabela Alert Setting do utilizador. Para poder verificar qual o alert_setting definido

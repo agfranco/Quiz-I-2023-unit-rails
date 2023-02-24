@@ -38,7 +38,8 @@ class Appointment < ApplicationRecord
   end
 
   def self.appointment_alerts
-    Appointments::SendAppointmentAlerts.run # This could run as a scheduled task
+    Appointments::SendAppointmentAlerts.run # This could run as a scheduled task and be removed
+                                            # from the model
   end
 
   def send_appointment
